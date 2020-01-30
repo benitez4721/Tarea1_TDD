@@ -18,3 +18,6 @@ class Persona():
         assert(self.sexo == 'M' or self.sexo == 'F')
         if(self.insalubres > 5):
             self.insalubres = 5
+
+    def _EsPensionado(self):
+        return True        
