@@ -20,7 +20,7 @@ class Persona():
             self.insalubres = 5
 
     def _EsPensionado(self):
-        if(self.sexo == 'M') and ( (self.today - self.inicio).days) >= 365*(60-self.insalubres) :
+        if(self.sexo == 'M') and ( (self.today - self.inicio).days) >= 365*(60-self.insalubres) and (self.semanas_cotizadas >= 750) :
             return True
         else:
             return False           
