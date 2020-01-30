@@ -14,7 +14,11 @@ class pensionTest(unittest.TestCase):
 
     def testVaron55anos750cotizacionesCon20anosInsalubres(self):
         self.persona = Persona("1/1/1965",'M',750,20)
-        self.assertTrue(self.persona._EsPensionado())            
+        self.assertTrue(self.persona._EsPensionado())
+        
+    def testVaron60anos749cotizaciones(self):   
+        self.persona = Persona("1/1/1960",'M',749,0)
+        self.assertFalse(self.persona._EsPensionado())                
 
 
 if __name__ == '__main__':
