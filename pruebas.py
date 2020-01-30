@@ -1,20 +1,12 @@
-import datetime
+import unittest
+from Pension import Persona
 
-class Persona():
-    today = datetime.datetime.now()
-    def __init__(self,d = datetime.datetime.now(), s= 'M',semanas_cotizadas = 0 ,i=0):
-        self.dia, self.mes, self.año = [int(x) for x in d.split('/')]
-        self.sexo = s
-        self.semanas_cotizadas = semanas_cotizadas
-        try:
-            self.insalubres = i//4
-        except:
-            print("Numero de años bajo condiciones insalubres invalido. Debe ser entero")
-        try:
-            self.inicio = datetime.datetime(self.año, self.mes, self.dia)
-        except:
-            print("Fecha no valida. Formato DD/MM/YY")
-        assert (self.inicio < self.today)
-        assert(self.sexo == 'M' or self.sexo == 'F')
-        if(self.insalubres > 5):
-            self.insalubres = 5
+
+class pensionTest(unittest.TestCase):
+    def testVaron60anos750cotizaciones(self):
+        self.persona = Persona("1/1/1960",'M',750,0)
+        self.assertTrue(self.persona._EsPensionado())
+
+
+if __name__ == '__main__':
+    unittest.main()    
