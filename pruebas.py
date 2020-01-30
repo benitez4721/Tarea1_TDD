@@ -22,7 +22,11 @@ class pensionTest(unittest.TestCase):
         
     def testMujer55anos750cotizaciones(self):
         self.persona = Persona("1/1/1965",'F',750,0)
-        self.assertTrue(self.persona._EsPensionado())                    
+        self.assertTrue(self.persona._EsPensionado())
+    
+    def testMujer54anos750cotizaciones(self):
+        self.persona = Persona("1/1/1966",'F',750,0)
+        self.assertFalse(self.persona._EsPensionado())                        
 
 
 if __name__ == '__main__':
